@@ -138,7 +138,7 @@ Lane.propTypes = {
   onCardReorder: PropTypes.func.isRequired,
   onReorder: PropTypes.func.isRequired,
   dropValidation: PropTypes.func,
-  canDrop: PropTypes.func.isRequired,
+  canDrop: PropTypes.bool.isRequired,
 };
 
 Lane.defaultProps = {

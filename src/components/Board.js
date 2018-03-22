@@ -18,6 +18,10 @@ class Board extends React.Component {
     this.reorderLane = this.reorderLane.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ lanes: nextProps.lanes });
+  }
+
   moveCard(itemId, dragIndex, hoverIndex) {
     const { lanes } = this.state;
     const dupLanes = [...lanes];

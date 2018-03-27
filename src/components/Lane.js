@@ -71,7 +71,7 @@ const LaneCardTarget = {
 const collectCardTarget = (connect, monitor) => ({
   connectCardDropTarget: connect.dropTarget(),
   isOver: monitor.isOver(),
-  canDrop: monitor.canDrop(),
+  isDroppable: monitor.canDrop(),
 });
 
 const collectSource = (connect, monitor) => ({
@@ -94,11 +94,11 @@ class Lane extends React.Component {
       connectCardDropTarget,
       isOver,
       isDragging,
-      canDrop,
+      isDroppable,
     } = this.props;
 
     return connectDragSource(connectDropTarget(connectCardDropTarget(<div>
-      <this.props.component data={data} isOver={isOver} isDragging={isDragging} canDrop={canDrop}>
+      <this.props.component data={data} isOver={isOver} isDragging={isDragging} isDroppable={isDroppable}>
         {items.map((item, index) =>
           (<ReactMotion.Motion
             key={item.id}
@@ -119,6 +119,7 @@ class Lane extends React.Component {
               component={cardComponent}
             />)}
            </ReactMotion.Motion>))}
+        {this.props.addComponent && <this.props.addComponent />}
       </this.props.component>
     </div>)));
   }
@@ -138,7 +139,8 @@ Lane.propTypes = {
   onCardReorder: PropTypes.func.isRequired,
   onReorder: PropTypes.func.isRequired,
   dropValidation: PropTypes.func,
-  canDrop: PropTypes.bool.isRequired,
+  isDroppable: PropTypes.bool.isRequired,
+  addComponent: PropTypes.func,
 };
 
 Lane.defaultProps = {

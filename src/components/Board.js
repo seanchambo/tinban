@@ -72,7 +72,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const { laneComponent, cardComponent } = this.props;
+    const { laneComponent, cardComponent, addComponent } = this.props;
     const { lanes } = this.state;
 
     return (
@@ -89,6 +89,7 @@ class Board extends React.Component {
             onDrop={this.moveCard}
             onReorder={this.reorderLane}
             onCardReorder={this.reorderCard}
+            addComponent={addComponent}
           />
           ))}
       </this.props.boardComponent>
@@ -101,6 +102,7 @@ Board.propTypes = {
   boardComponent: PropTypes.func.isRequired,
   cardComponent: PropTypes.func.isRequired,
   laneComponent: PropTypes.func.isRequired,
+  addComponent: PropTypes.func.isRequired,
   onReorderLane: PropTypes.func,
   onReorderCard: PropTypes.func,
   onMoveCard: PropTypes.func,

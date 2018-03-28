@@ -119,7 +119,7 @@ class Lane extends React.Component {
               component={cardComponent}
             />)}
            </ReactMotion.Motion>))}
-        {this.props.addComponent && <this.props.addComponent />}
+        {this.props.addComponent && <this.props.addComponent laneId={this.props.data.id} />}
       </this.props.component>
     </div>)));
   }

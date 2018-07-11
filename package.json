@@ -1,11 +1,12 @@
 {
   "name": "tinban",
-  "version": "1.0.7",
+  "version": "2.0.1",
   "description": "",
   "main": "dist/index.js",
   "style": "dist/style.css",
   "files": [
-    "dist"
+    "dist",
+    "example"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,15 +17,13 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
   },
   "dependencies": {
-    "prop-types": "^15.5.7",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
-    "react-layout-components": "^3.0.6",
-    "react-motion": "^0.5.2"
+    "react-layout-components": "^3.0.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -37,11 +36,12 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "rollup": "^0.56.4",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^9.0.0",
-    "rollup-plugin-node-resolve": "^3.0.3"
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup-plugin-uglify": "^4.0.0"
   }
 }

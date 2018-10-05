@@ -3,11 +3,17 @@ import ReactDnD from 'react-dnd';
 
 const cardSource = {
   beginDrag(props) {
+    this.originalLane = props.laneId;
     return {
       id: props.card.id,
       laneId: props.laneId,
       index: props.index,
     };
+  },
+  endDrag(props, monitor) {
+    if (monitor.getDropResult() || !this.originalLane) return;
+    props.onDragCancelled(monitor.getItem().id, this.originalLane);
+    delete this.originalLane;
   },
   isDragging(props, monitor) {
     return monitor.getItem().id === props.card.id;

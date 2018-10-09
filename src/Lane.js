@@ -50,13 +50,16 @@ const LaneCardTarget = {
 
     return props.canDropCard(item, dragLaneId, dropLaneId);
   },
-  hover(props, monitor, component) {
+  drop(props, monitor) {
+    props.onCardDrop(monitor.getItem().id);
+  },
+  hover(props, monitor) {
     const item = monitor.getItem();
     const dragIndex = item.laneId;
     const hoverIndex = props.lane.id;
 
     if (dragIndex !== hoverIndex && monitor.canDrop()) {
-      props.onCardDrop(item.id, dragIndex, hoverIndex);
+      props.onLaneHover(item.id, dragIndex);
       monitor.getItem().laneId = hoverIndex;
       monitor.getItem().index = props.lane.cards.length - 1;
     }
